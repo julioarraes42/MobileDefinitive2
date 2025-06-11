@@ -5,6 +5,7 @@ public class PlanetCameraFocus : MonoBehaviour
     public float orbitDistance = 10f;
     public float orbitSpeed = 5f;
     public float verticalLimit = 80f;
+    public GameObject miraCanvas;
 
     private Transform currentPlanet;
     private Transform orbitAnchor;
@@ -95,6 +96,9 @@ public class PlanetCameraFocus : MonoBehaviour
         // Desativa o PlayerMovement
         if (playerMovement != null)
             playerMovement.enabled = false;
+
+        if (miraCanvas != null)
+            miraCanvas.SetActive(false);
     }
 
     void StopFocus()
@@ -107,6 +111,9 @@ public class PlanetCameraFocus : MonoBehaviour
 
         if (playerMovement != null)
             playerMovement.enabled = true;
+
+        if (miraCanvas != null)
+            miraCanvas.SetActive(true);
 
         Destroy(orbitAnchor.gameObject);
         orbitAnchor = null;
